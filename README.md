@@ -6,6 +6,38 @@ download the NWB, preprocess, and run HMM cross-validation. It is intended
 for batch/array execution by providing `SESSION_ID` per run or a
 `parameters.json` sweep in Code Ocean.
 
+Creating the Capsule in Code Ocean
+-----------------------------------
+
+### Option 1: Using the Code Ocean API (Automated)
+
+1. Get your Code Ocean API token:
+   - Log in to Code Ocean
+   - Go to Account Settings > API Tokens
+   - Generate a new token
+
+2. Set environment variables:
+   ```bash
+   export CODEOCEAN_API_TOKEN=your_token_here
+   export CODEOCEAN_API_URL=https://api.codeocean.com  # Optional, has default
+   ```
+
+3. Run the creation script:
+   ```bash
+   pip install -r requirements_api.txt
+   python create_codeocean_capsule.py
+   ```
+
+### Option 2: Manual Creation via Web UI
+
+1. Go to https://codeocean.com
+2. Click "Add Capsule" > "Clone from Git"
+3. Enter repository URL: `https://github.com/srecanatesi/pipeline-capsule`
+4. Configure the capsule:
+   - Set the entry point to `run.sh`
+   - Configure the environment using `environment.yml`
+   - Set up parameter sweeps using `parameters.json`
+
 Entry point
  - run.sh (expects `SESSION_ID` env var)
 
