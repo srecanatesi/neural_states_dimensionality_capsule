@@ -9,12 +9,40 @@ for batch/array execution by providing `SESSION_ID` per run or a
 Creating the Capsule in Code Ocean
 -----------------------------------
 
-### Option 1: Using the Code Ocean API (Automated)
+### Option 1: Using the Code Ocean Python SDK (Recommended)
+
+**Requirements:** Python 3.9 or higher
 
 1. Get your Code Ocean API token:
    - Log in to Code Ocean
    - Go to Account Settings > API Tokens
    - Generate a new token
+
+2. Install the SDK and dependencies:
+   ```bash
+   pip install -r requirements_api.txt
+   # Or install directly: pip install codeocean
+   ```
+
+3. Set environment variables:
+   ```bash
+   # PowerShell
+   $env:CODEOCEAN_API_TOKEN="your_token_here"
+   
+   # Bash/Linux/Mac
+   export CODEOCEAN_API_TOKEN=your_token_here
+   ```
+
+4. Run the SDK-based script:
+   ```bash
+   python create_codeocean_capsule_sdk.py
+   ```
+
+### Option 1b: Using the Code Ocean REST API (Manual API calls)
+
+If you're using Python 3.8 or prefer manual API calls:
+
+1. Get your Code Ocean API token (same as above)
 
 2. Set environment variables:
    ```bash
@@ -22,9 +50,9 @@ Creating the Capsule in Code Ocean
    export CODEOCEAN_API_URL=https://api.codeocean.com  # Optional, has default
    ```
 
-3. Run the creation script:
+3. Run the REST API script:
    ```bash
-   pip install -r requirements_api.txt
+   pip install requests pyyaml python-dotenv
    python create_codeocean_capsule.py
    ```
 
