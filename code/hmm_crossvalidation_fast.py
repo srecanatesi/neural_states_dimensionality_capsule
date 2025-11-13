@@ -133,12 +133,12 @@ def xval_core_fast(i_state, spkcnts, nKfold, N_itersxv, tolerance=0.1):
     
     return np.mean(llhood_fold)
 
-def hmm_xval_fast(spkcnts, nKfold=3, N_itersxv=50, tolerance=0.1):
+def hmm_xval_fast(spkcnts, nKfold=2, N_itersxv=50, tolerance=0.1):
     """
     Fast cross-validation with reduced parameters for speed
     """
     # Reduced state space for faster evaluation (only test 2-5 states)
-    states_space = np.arange(2, min(6, len(spkcnts[0])//100 + 2))  # Cap at 5 states max
+    states_space = np.arange(2, min(5, len(spkcnts[0])//100 + 2))  # Cap at 5 states max
     
     print(f"Fast cross-validation: testing {len(states_space)} states with {nKfold} folds")
     print(f"States to test: {states_space}")
@@ -156,7 +156,7 @@ def hmm_xval_fast(spkcnts, nKfold=3, N_itersxv=50, tolerance=0.1):
     
     return states_space, llhood_mean
 
-def hmm_analysis_fast(spkcnts, nKfold=3, N_itersxv=50, N_iters=100, N_states=np.nan, N_final_fit=2, tolerance=0.1, hmm_true4colors=None, save=np.nan):
+def hmm_analysis_fast(spkcnts, nKfold=2, N_itersxv=50, N_iters=100, N_states=np.nan, N_final_fit=2, tolerance=0.1, hmm_true4colors=None, save=np.nan):
     """
     Fast HMM analysis with optimized parameters for speed
     """
@@ -238,9 +238,9 @@ def main():
     parser.add_argument('--session-id', type=str, required=True, help='Session ID to process')
     parser.add_argument('--data-dir', type=str, default='data/sessions_preprocessed', help='Directory with preprocessed data')
     parser.add_argument('--output-dir', type=str, default='data/sessions_hmm_crossval', help='Output directory for results')
-    parser.add_argument('--n-folds', type=int, default=3, help='Number of cross-validation folds')
+    parser.add_argument('--n-folds', type=int, default=2, help='Number of cross-validation folds')
     parser.add_argument('--n-iter-xval', type=int, default=5, help='Number of iterations for cross-validation')
-    parser.add_argument('--n-iter-final', type=int, default=50, help='Number of iterations for final fit')
+    parser.add_argument('--n-iter-final', type=int, default=5, help='Number of iterations for final fit')
     parser.add_argument('--n-final-fits', type=int, default=1, help='Number of final fits')
     parser.add_argument('--tolerance', type=float, default=0.1, help='Convergence tolerance')
     

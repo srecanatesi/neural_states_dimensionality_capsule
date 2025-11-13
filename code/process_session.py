@@ -154,8 +154,9 @@ def main():
     txt_files.sort(key=lambda x: x[0])  # Sort by run number
     
     if len(txt_files) == 0:
-        print('ERROR: No txt files found in data/run1/, data/run2/, or data/run3/', file=sys.stderr)
-        sys.exit(1)
+        print(f'\nNo txt files found in data/run1/, data/run2/, or data/run3/')
+        print('Nothing to process. Exiting gracefully.')
+        return  # Exit without error
     
     print(f'\nFound {len(txt_files)} txt file(s) to process')
     
