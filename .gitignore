@@ -25,3 +25,12 @@ Thumbs.db
 *.nwb
 *.log
 
+# Results folder
+results/
+
+# Data folder
+data/
+
+# Sessions CSV
+sessions.csv
+
