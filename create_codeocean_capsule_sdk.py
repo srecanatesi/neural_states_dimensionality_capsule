@@ -45,7 +45,7 @@ except ImportError:
 
 # Configuration
 GITHUB_REPO_URL = "https://github.com/srecanatesi/pipeline-capsule"
-CAPSULE_NAME = "Neural States Dimensionality Pipeline"
+CAPSULE_NAME = "neural_states_dimensionality_capsule"
 CAPSULE_DESCRIPTION = "Code Ocean capsule for processing single session: download NWB, preprocess, and run HMM cross-validation"
 
 def get_api_token() -> Optional[str]:

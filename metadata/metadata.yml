@@ -1,4 +1,4 @@
-title: "Neural States Dimensionality Pipeline"
+title: "neural_states_dimensionality_capsule"
 description: "Code Ocean capsule for processing single session: download NWB, preprocess, and run HMM cross-validation"
 authors:
   - name: Stefano Recanatesi
